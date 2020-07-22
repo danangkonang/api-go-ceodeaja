@@ -1,0 +1,24 @@
+hash: d17d6943b2005ccb8dfa7aa7c0783153bb43e3a0d8c0314db7a8d740f9e687e0
+updated: 2020-01-25T22:10:38.916256198+07:00
+imports:
+- name: github.com/dgrijalva/jwt-go
+  version: dc14462fd58732591c7fa58cc8496d6824316a82
+- name: github.com/go-sql-driver/mysql
+  version: 17ef3dd9d98b69acec3e85878995ada9533a9370
+- name: github.com/gorilla/handlers
+  version: f08afc1876ad882db8074bcb8a4cc96107d3a5f4
+- name: github.com/gorilla/mux
+  version: 75dcda0896e109a2a22c9315bca3bb21b87b2ba5
+- name: github.com/joho/godotenv
+  version: b09de681dcaff3eaeafcc62ee1f9f622a0c32b8b
+- name: github.com/lib/pq
+  version: 9eb3fc897d6fd97dd4aad3d0404b54e2f7cc56be
+  subpackages:
+  - oid
+  - scram
+- name: golang.org/x/crypto
+  version: 530e935923ad688be97c15eeb8e5ee42ebf2b54a
+  subpackages:
+  - bcrypt
+  - blowfish
+testImports: []
