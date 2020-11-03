@@ -1,7 +1,7 @@
 package kecamatan
 
 import (
-	"github.com/danangkonang/rest-api/migrate/tables/address/kecamatan/kec"
+	"github.com/danangkonang/ceodeaja-go/migrate/tables/address/kecamatan/kec"
 )
 
 func CreateKecamatan() {

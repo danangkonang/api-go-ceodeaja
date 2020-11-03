@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/danangkonang/rest-api/helper"
+	"github.com/danangkonang/ceodeaja-go/helper"
 )
 
 type ResetPassword struct {

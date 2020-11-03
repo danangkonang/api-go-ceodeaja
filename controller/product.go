@@ -15,8 +15,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/danangkonang/rest-api/config"
-	"github.com/danangkonang/rest-api/helper"
+	"github.com/danangkonang/ceodeaja-go/config"
+	"github.com/danangkonang/ceodeaja-go/helper"
 
 	"github.com/gorilla/mux"
 )
@@ -206,7 +206,12 @@ func ShowProduct(w http.ResponseWriter, r *http.Request) {
 			"create":       post.Created_at.Format("2006-01-02 15:04:05"),
 			"update":       post.Updated_at.Format("2006-01-02 15:04:05"),
 		}
-		re, _ := json.Marshal(resJes)
+		res := map[string]interface{}{
+			"success": true,
+			"data":    resJes,
+		}
+		re, _ := json.Marshal(res)
+		w.WriteHeader(http.StatusOK)
 		w.Write(re)
 	default:
 		panic(err)
@@ -344,7 +349,7 @@ func ShowProducts(w http.ResponseWriter, r *http.Request) {
 	p.updated_at,
 	i.category_id
 	FROM products p 
-	LEFT JOIN sub_categori_items i ON p.category_id = i.id
+	LEFT JOIN sub_items i ON p.category_id = i.id_sub_item
 	`
 	result, err := db.Query(query)
 	checkErr(err)
@@ -372,7 +377,11 @@ func ShowProducts(w http.ResponseWriter, r *http.Request) {
 	}
 	defer db.Close()
 	if len(prod) > 0 {
-		q, _ := json.Marshal(prod)
+		res := map[string]interface{}{
+			"success": true,
+			"data":    prod,
+		}
+		q, _ := json.Marshal(res)
 		w.Write(q)
 	} else {
 		f2 := make([]string, 0)

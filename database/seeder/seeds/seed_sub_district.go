@@ -1,7 +1,7 @@
 package seeds
 
 import (
-	"github.com/danangkonang/rest-api/database/seeder/seeds/subDistrict"
+	"github.com/danangkonang/ceodeaja-go/database/seeder/seeds/subDistrict"
 )
 
 func CreateKecamatan() {

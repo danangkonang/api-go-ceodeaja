@@ -9,7 +9,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/danangkonang/rest-api/helper"
+	"github.com/danangkonang/ceodeaja-go/helper"
 )
 
 // const CONFIG_SMTP_HOST = "smtp.gmail.com"

@@ -1,7 +1,7 @@
 package seeder
 
 import (
-	"github.com/danangkonang/rest-api/database/seeder/seeds"
+	"github.com/danangkonang/ceodeaja-go/database/seeder/seeds"
 )
 
 func CreateSeeds() {

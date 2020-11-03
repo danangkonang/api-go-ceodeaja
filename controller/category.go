@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/danangkonang/rest-api/config"
+	"github.com/danangkonang/ceodeaja-go/config"
 	"github.com/gorilla/mux"
 )
 
@@ -28,7 +28,7 @@ type Items struct {
 
 func ShowCategories(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	sqlStatement := `SELECT id,category FROM categories`
+	sqlStatement := `SELECT id_category,category FROM categories`
 	db := config.Connect()
 	result, err := db.Query(sqlStatement)
 	checkErr(err)
@@ -37,7 +37,7 @@ func ShowCategories(w http.ResponseWriter, r *http.Request) {
 		var res Category
 		err := result.Scan(&res.Id, &res.Category)
 		checkErr(err)
-		query := `SELECT id,category_id,sub_category FROM sub_categories WHERE category_id=$1`
+		query := `SELECT id_sub_category,category_id,sub_category FROM sub_categories WHERE category_id=$1`
 		rslt, err := db.Query(query, res.Id)
 		checkErr(err)
 		var resSubCat []interface{}
@@ -45,7 +45,7 @@ func ShowCategories(w http.ResponseWriter, r *http.Request) {
 			var resSub Sub
 			err := rslt.Scan(&resSub.Id, &resSub.CategoryId, &resSub.SubCategory)
 			checkErr(err)
-			querys := `SELECT id,category_id,sub_category_id,sub_item FROM sub_categori_items WHERE sub_category_id=$1`
+			querys := `SELECT id_sub_item,category_id,sub_category_id,sub_item FROM sub_items WHERE sub_category_id=$1`
 			resItm, err := db.Query(querys, resSub.Id)
 			checkErr(err)
 			var resItem []interface{}
@@ -88,7 +88,7 @@ func ShowCategories(w http.ResponseWriter, r *http.Request) {
 
 func ShowCategory(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	sqlStatement := `SELECT id,category FROM categories`
+	sqlStatement := `SELECT id_category,category FROM categories`
 	db := config.Connect()
 	result, err := db.Query(sqlStatement)
 	checkErr(err)
@@ -112,7 +112,7 @@ func ShowSubCategories(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
 	db := config.Connect()
-	query := `SELECT id,category_id,sub_category FROM sub_categories WHERE category_id=$1`
+	query := `SELECT id_sub_category,category_id,sub_category FROM sub_categories WHERE category_id=$1`
 	rslt, err := db.Query(query, params["id"])
 	checkErr(err)
 	var resSubCat []interface{}

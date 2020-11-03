@@ -3,7 +3,7 @@ package kel50
 import (
 	"fmt"
 
-	"github.com/danangkonang/rest-api/config"
+	"github.com/danangkonang/ceodeaja-go/config"
 )
 
 func Kel54() {

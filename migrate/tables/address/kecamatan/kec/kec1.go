@@ -1,6 +1,6 @@
 package kec
 
-import "github.com/danangkonang/rest-api/config"
+import "github.com/danangkonang/ceodeaja-go/config"
 
 func Kec1() {
 	db := config.Connect()
@@ -735,6 +735,11 @@ func Kec1() {
 		(728, 'TANJUNGJAYA', 33, 3),
 		(729, 'TARAJU', 33, 3),
 		(730, 'TAWANG', 33, 3),
+
+
+
+
+		
 		(731, 'BANJARMANGU', 34, 4),
 		(732, 'BANJARNEGARA', 34, 4),
 		(733, 'BATUR', 34, 4),

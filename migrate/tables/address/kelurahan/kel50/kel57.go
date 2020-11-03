@@ -1,6 +1,6 @@
 package kel50
 
-import "github.com/danangkonang/rest-api/config"
+import "github.com/danangkonang/ceodeaja-go/config"
 
 func Kel57() {
 	db := config.Connect()
@@ -117,6 +117,10 @@ func Kel57() {
 	(57110, 'TAJUNG SERIAN', 4331, 309, 21),
 	(57111, 'TALANG DUKUN', 4331, 309, 21),
 	(57112, 'TEMINDUNG PERMAI', 4331, 309, 21),
+
+
+
+
 	(57113, 'LEPAK ARU', 4332, 310, 22),
 	(57114, 'LONG BIA', 4332, 310, 22),
 	(57115, 'LONG BUANG', 4332, 310, 22),
@@ -583,6 +587,10 @@ func Kel57() {
 	(57575, 'JUATA KRIKIL/KERIKIL', 4377, 314, 22),
 	(57576, 'JUATA LAUT', 4377, 314, 22),
 	(57577, 'JUATA PERMAI', 4377, 314, 22),
+
+
+
+	
 	(57578, 'BANGGAE', 4378, 315, 23),
 	(57579, 'BARU', 4378, 315, 23),
 	(57580, 'GALUNG', 4378, 315, 23),

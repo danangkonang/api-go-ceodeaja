@@ -3,7 +3,7 @@ package kel20
 import (
 	"fmt"
 
-	"github.com/danangkonang/rest-api/config"
+	"github.com/danangkonang/ceodeaja-go/config"
 )
 
 func Kel22() {

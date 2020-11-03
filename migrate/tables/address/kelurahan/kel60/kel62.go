@@ -1,6 +1,6 @@
 package kel60
 
-import "github.com/danangkonang/rest-api/config"
+import "github.com/danangkonang/ceodeaja-go/config"
 
 func Kel62() {
 	db := config.Connect()

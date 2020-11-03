@@ -1,15 +1,15 @@
 package kelurahan
 
 import (
-	"github.com/danangkonang/rest-api/migrate/tables/address/kelurahan/kel0"
-	"github.com/danangkonang/rest-api/migrate/tables/address/kelurahan/kel10"
-	"github.com/danangkonang/rest-api/migrate/tables/address/kelurahan/kel20"
-	"github.com/danangkonang/rest-api/migrate/tables/address/kelurahan/kel30"
-	"github.com/danangkonang/rest-api/migrate/tables/address/kelurahan/kel40"
-	"github.com/danangkonang/rest-api/migrate/tables/address/kelurahan/kel50"
-	"github.com/danangkonang/rest-api/migrate/tables/address/kelurahan/kel60"
-	"github.com/danangkonang/rest-api/migrate/tables/address/kelurahan/kel70"
-	"github.com/danangkonang/rest-api/migrate/tables/address/kelurahan/kel80"
+	"github.com/danangkonang/ceodeaja-go/migrate/tables/address/kelurahan/kel0"
+	"github.com/danangkonang/ceodeaja-go/migrate/tables/address/kelurahan/kel10"
+	"github.com/danangkonang/ceodeaja-go/migrate/tables/address/kelurahan/kel20"
+	"github.com/danangkonang/ceodeaja-go/migrate/tables/address/kelurahan/kel30"
+	"github.com/danangkonang/ceodeaja-go/migrate/tables/address/kelurahan/kel40"
+	"github.com/danangkonang/ceodeaja-go/migrate/tables/address/kelurahan/kel50"
+	"github.com/danangkonang/ceodeaja-go/migrate/tables/address/kelurahan/kel60"
+	"github.com/danangkonang/ceodeaja-go/migrate/tables/address/kelurahan/kel70"
+	"github.com/danangkonang/ceodeaja-go/migrate/tables/address/kelurahan/kel80"
 )
 
 func Kelurahan() {

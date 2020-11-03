@@ -1,6 +1,6 @@
 package kec
 
-import "github.com/danangkonang/rest-api/config"
+import "github.com/danangkonang/ceodeaja-go/config"
 
 func Kec2() {
 	db := config.Connect()
@@ -934,6 +934,9 @@ func Kec2() {
 		(1927, 'SUMBERGEMPOL', 100, 6),
 		(1928, 'TANGGUNG GUNUNG', 100, 6),
 		(1929, 'TULUNGAGUNG', 100, 6),
+
+
+		
 		(1930, 'ABIANSEMAL', 101, 7),
 		(1931, 'KUTA', 101, 7),
 		(1932, 'KUTA SELATAN', 101, 7),

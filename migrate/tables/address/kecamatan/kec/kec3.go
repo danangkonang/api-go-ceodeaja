@@ -1,11 +1,11 @@
 package kec
 
-import "github.com/danangkonang/rest-api/config"
+import "github.com/danangkonang/ceodeaja-go/config"
 
 func Kec3() {
 	db := config.Connect()
 	db.Exec(`INSERT INTO kecamatan (id,kecamatan,kota_id,provinsi_id) VALUES
-	(2001, 'MANGGENG', 111, 8),
+		(2001, 'MANGGENG', 111, 8),
 		(2002, 'SETIA', 111, 8),
 		(2003, 'SUSOH', 111, 8),
 		(2004, 'TANGAN-TANGAN', 111, 8),
@@ -688,6 +688,9 @@ func Kec3() {
 		(2681, 'SILAEN', 165, 9),
 		(2682, 'TAMPAHAN', 165, 9),
 		(2683, 'ULUAN', 165, 9),
+
+
+		
 		(2684, 'AMPEK NAGARI (IV NAGARI )', 166, 10),
 		(2685, 'BANUHAMPU', 166, 10),
 		(2686, 'BASO', 166, 10),

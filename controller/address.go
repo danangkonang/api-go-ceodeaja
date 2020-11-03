@@ -5,55 +5,65 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/danangkonang/rest-api/config"
+	"github.com/danangkonang/ceodeaja-go/config"
 	"github.com/gorilla/mux"
 )
 
 type Province struct {
-	Id      int64
-	Provinc string
+	IdProvinsi int64
+	Provinc    string
 }
 
+// fix
 func ShowProvinces(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	db := config.Connect()
-	result, err := db.Query("SELECT id, provinsi FROM provinsi")
+	result, err := db.Query("SELECT id_provinsi, provinsi FROM provinsi")
 	checkErr(err)
 	var prov []interface{}
 	for result.Next() {
 		var p Province
-		err := result.Scan(&p.Id, &p.Provinc)
+		err := result.Scan(&p.IdProvinsi, &p.Provinc)
 		checkErr(err)
 		res := map[string]interface{}{
-			"id":   p.Id,
+			"id":   p.IdProvinsi,
 			"name": p.Provinc,
 		}
 		prov = append(prov, res)
 	}
 	defer db.Close()
-	q, _ := json.Marshal(prov)
+	resProv := map[string]interface{}{
+		"success": true,
+		"data":    prov,
+	}
+	q, _ := json.Marshal(resProv)
 	w.Write(q)
 }
 
+// fix
 func ShowProvince(w http.ResponseWriter, r *http.Request) {
 	db := config.Connect()
 	params := mux.Vars(r)
 	w.Header().Set("Content-Type", "application/json")
-	sqlStatement := `SELECT id, provinsi FROM provinsi WHERE id = $1`
+	sqlStatement := `SELECT id_provinsi, provinsi FROM provinsi WHERE id_provinsi = $1`
 	var post Province
 	row := db.QueryRow(sqlStatement, params["id"])
-	err := row.Scan(&post.Id, &post.Provinc)
+	err := row.Scan(&post.IdProvinsi, &post.Provinc)
 	switch err {
 	case sql.ErrNoRows:
 		res := map[string]interface{}{
-			"data": "null",
+			"data":    "null",
+			"success": true,
 		}
 		r, _ := json.Marshal(res)
 		w.Write(r)
 	case nil:
 		resJes := map[string]interface{}{
-			"id":      post.Id,
-			"user_id": post.Provinc,
+			"success": true,
+			"data": map[string]interface{}{
+				"id":      post.IdProvinsi,
+				"user_id": post.Provinc,
+			},
 		}
 		re, _ := json.Marshal(resJes)
 		w.WriteHeader(http.StatusOK)
@@ -69,11 +79,12 @@ type City struct {
 	Province_id int64
 }
 
+// fix
 func ShowCitys(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
 	db := config.Connect()
-	result, err := db.Query("SELECT id,kota,provinsi_id FROM kota WHERE provinsi_id = $1", params["id"])
+	result, err := db.Query("SELECT id_kabupaten,kabupaten,provinsi_id FROM kabupaten WHERE provinsi_id = $1", params["id"])
 	checkErr(err)
 	var citi []interface{}
 	for result.Next() {
@@ -88,14 +99,29 @@ func ShowCitys(w http.ResponseWriter, r *http.Request) {
 		citi = append(citi, res)
 	}
 	defer db.Close()
-	q, _ := json.Marshal(citi)
-	w.Write(q)
+	if len(citi) > 0 {
+		resKab := map[string]interface{}{
+			"success": true,
+			"data":    citi,
+		}
+		q, _ := json.Marshal(resKab)
+		w.Write(q)
+	} else {
+		f2 := make([]string, 0)
+		res := map[string]interface{}{
+			"success": true,
+			"data":    f2,
+		}
+		q, _ := json.Marshal(res)
+		w.Write(q)
+	}
 }
 
+// fix
 func ShowCity(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
-	sqlStatement := `SELECT id,kota,provinsi_id FROM kota WHERE id = $1`
+	sqlStatement := `SELECT id_kabupaten,kabupaten,provinsi_id FROM kabupaten WHERE id_kabupaten = $1`
 	var post City
 	db := config.Connect()
 	row := db.QueryRow(sqlStatement, params["id"])
@@ -103,15 +129,19 @@ func ShowCity(w http.ResponseWriter, r *http.Request) {
 	switch err {
 	case sql.ErrNoRows:
 		res := map[string]interface{}{
-			"data": "null",
+			"success": true,
+			"data":    "null",
 		}
 		r, _ := json.Marshal(res)
 		w.Write(r)
 	case nil:
 		resJes := map[string]interface{}{
-			"id":          post.Id,
-			"name":        post.Name,
-			"province_id": post.Province_id,
+			"success": true,
+			"data": map[string]interface{}{
+				"id":          post.Id,
+				"name":        post.Name,
+				"province_id": post.Province_id,
+			},
 		}
 		re, _ := json.Marshal(resJes)
 		w.WriteHeader(http.StatusOK)
@@ -128,11 +158,12 @@ type Kecamatan struct {
 	Provinsi_id int32
 }
 
+// fix
 func ShowKecamatans(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
 	db := config.Connect()
-	result, err := db.Query("SELECT id,kecamatan,kota_id,provinsi_id FROM kecamatan WHERE kota_id = $1", params["id"])
+	result, err := db.Query("SELECT id_kecamatan,kecamatan,kabupaten_id,provinsi_id FROM kecamatan WHERE kabupaten_id = $1", params["id"])
 	checkErr(err)
 	var kec []interface{}
 	for result.Next() {
@@ -148,14 +179,18 @@ func ShowKecamatans(w http.ResponseWriter, r *http.Request) {
 		kec = append(kec, res)
 	}
 	defer db.Close()
-	q, _ := json.Marshal(kec)
+	resKec := map[string]interface{}{
+		"success": true,
+		"data":    kec,
+	}
+	q, _ := json.Marshal(resKec)
 	w.Write(q)
 }
 
 func ShowKecamatan(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
-	sqlStatement := `SELECT id,kecamatan,kota_id,provinsi_id FROM kecamatan WHERE id = $1`
+	sqlStatement := `SELECT id_kecamatan,kecamatan,kabupaten_id,provinsi_id FROM kecamatan WHERE id_kecamatan = $1`
 	var post Kecamatan
 	db := config.Connect()
 	row := db.QueryRow(sqlStatement, params["id"])
@@ -163,16 +198,20 @@ func ShowKecamatan(w http.ResponseWriter, r *http.Request) {
 	switch err {
 	case sql.ErrNoRows:
 		res := map[string]interface{}{
-			"data": "null",
+			"success": true,
+			"data":    "null",
 		}
 		r, _ := json.Marshal(res)
 		w.Write(r)
 	case nil:
 		resJes := map[string]interface{}{
-			"id":          post.Id,
-			"name":        post.Name,
-			"kota_id":     post.Kota_id,
-			"province_id": post.Provinsi_id,
+			"success": true,
+			"data": map[string]interface{}{
+				"id":          post.Id,
+				"name":        post.Name,
+				"kota_id":     post.Kota_id,
+				"province_id": post.Provinsi_id,
+			},
 		}
 		re, _ := json.Marshal(resJes)
 		w.WriteHeader(http.StatusOK)
@@ -190,11 +229,12 @@ type Kelurahan struct {
 	Provinsi_id  int32
 }
 
+// fix
 func ShowKelurahans(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
 	db := config.Connect()
-	sqlStatement := "SELECT id,kelurahan,kecamatan_id,kota_id,provinsi_id FROM kelurahan WHERE kecamatan_id = $1"
+	sqlStatement := "SELECT id_kelurahan,kelurahan,kecamatan_id,kabupaten_id,provinsi_id FROM kelurahan WHERE kecamatan_id = $1"
 	result, err := db.Query(sqlStatement, params["id"])
 	checkErr(err)
 	var kel []interface{}
@@ -212,14 +252,29 @@ func ShowKelurahans(w http.ResponseWriter, r *http.Request) {
 		kel = append(kel, res)
 	}
 	defer db.Close()
-	q, _ := json.Marshal(kel)
-	w.Write(q)
+	if len(kel) > 0 {
+		res := map[string]interface{}{
+			"success": true,
+			"data":    kel,
+		}
+		q, _ := json.Marshal(res)
+		w.Write(q)
+	} else {
+		f2 := make([]string, 0)
+		res := map[string]interface{}{
+			"success": true,
+			"data":    f2,
+		}
+		q, _ := json.Marshal(res)
+		w.Write(q)
+	}
 }
 
+// fix
 func ShowKelurahan(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
-	sqlStatement := `SELECT id,kelurahan,kecamatan_id,kota_id,provinsi_id FROM kelurahan WHERE id = $1`
+	sqlStatement := `SELECT id_kelurahan,kelurahan,kecamatan_id,kabupaten_id,provinsi_id FROM kelurahan WHERE id_kelurahan = $1`
 	var post Kelurahan
 	db := config.Connect()
 	row := db.QueryRow(sqlStatement, params["id"])
@@ -227,7 +282,8 @@ func ShowKelurahan(w http.ResponseWriter, r *http.Request) {
 	switch err {
 	case sql.ErrNoRows:
 		res := map[string]interface{}{
-			"data": "null",
+			"success": true,
+			"data":    "null",
 		}
 		r, _ := json.Marshal(res)
 		w.Write(r)

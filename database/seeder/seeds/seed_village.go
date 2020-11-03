@@ -1,15 +1,15 @@
 package seeds
 
 import (
-	"github.com/danangkonang/rest-api/database/seeder/seeds/village/kel0"
-	"github.com/danangkonang/rest-api/database/seeder/seeds/village/kel10"
-	"github.com/danangkonang/rest-api/database/seeder/seeds/village/kel20"
-	"github.com/danangkonang/rest-api/database/seeder/seeds/village/kel30"
-	"github.com/danangkonang/rest-api/database/seeder/seeds/village/kel40"
-	"github.com/danangkonang/rest-api/database/seeder/seeds/village/kel50"
-	"github.com/danangkonang/rest-api/database/seeder/seeds/village/kel60"
-	"github.com/danangkonang/rest-api/database/seeder/seeds/village/kel70"
-	"github.com/danangkonang/rest-api/database/seeder/seeds/village/kel80"
+	"github.com/danangkonang/ceodeaja-go/database/seeder/seeds/village/kel0"
+	"github.com/danangkonang/ceodeaja-go/database/seeder/seeds/village/kel10"
+	"github.com/danangkonang/ceodeaja-go/database/seeder/seeds/village/kel20"
+	"github.com/danangkonang/ceodeaja-go/database/seeder/seeds/village/kel30"
+	"github.com/danangkonang/ceodeaja-go/database/seeder/seeds/village/kel40"
+	"github.com/danangkonang/ceodeaja-go/database/seeder/seeds/village/kel50"
+	"github.com/danangkonang/ceodeaja-go/database/seeder/seeds/village/kel60"
+	"github.com/danangkonang/ceodeaja-go/database/seeder/seeds/village/kel70"
+	"github.com/danangkonang/ceodeaja-go/database/seeder/seeds/village/kel80"
 )
 
 func CreateVillage() {

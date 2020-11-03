@@ -1,4 +1,4 @@
-package: github.com/danangkonang/rest-api
+package: github.com/danangkonang/ceodeaja-go
 import:
 - package: github.com/dgrijalva/jwt-go
 - package: github.com/go-sql-driver/mysql

@@ -1,6 +1,6 @@
 package kel20
 
-import "github.com/danangkonang/rest-api/config"
+import "github.com/danangkonang/ceodeaja-go/config"
 
 func Kel25() {
 	db := config.Connect()
@@ -449,6 +449,10 @@ func Kel25() {
 	(25442, 'SEMBUNG', 1929, 100, 6),
 	(25443, 'TAMANAN', 1929, 100, 6),
 	(25444, 'TERTEK', 1929, 100, 6),
+
+
+
+	
 	(25445, 'ABIANSEMAL', 1930, 101, 7),
 	(25446, 'ANGANTAKA', 1930, 101, 7),
 	(25447, 'AYUNAN', 1930, 101, 7),

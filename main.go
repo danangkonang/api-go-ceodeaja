@@ -6,10 +6,10 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/danangkonang/rest-api/controller"
-	"github.com/danangkonang/rest-api/middleware"
+	"github.com/danangkonang/ceodeaja-go/controller"
+	"github.com/danangkonang/ceodeaja-go/middleware"
 
-	// "github.com/danangkonang/rest-api/migrate"
+	// "github.com/danangkonang/ceodeaja-go/migrate"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/handlers"
@@ -54,17 +54,17 @@ func handleRequest() {
 	r.HandleFunc("/v1/get-products/{id}", controller.ShowProductsByCategory).Methods("GET")
 	r.HandleFunc("/v1/delete-products/{id}", middleware.Auth(controller.DestroyProduct)).Methods("DELETE")
 	// address
-	r.HandleFunc("/v1/get-provinces", middleware.Auth(controller.ShowProvinces)).Methods("GET")
-	r.HandleFunc("/v1/get-province/{id}", middleware.Auth(controller.ShowProvince)).Methods("GET")
-	r.HandleFunc("/v1/get-citys/{id}", middleware.Auth(controller.ShowCitys)).Methods("GET")
-	r.HandleFunc("/v1/get-city/{id}", middleware.Auth(controller.ShowCity)).Methods("GET")
-	r.HandleFunc("/v1/get-kecamatans/{id}", middleware.Auth(controller.ShowKecamatans)).Methods("GET")
-	r.HandleFunc("/v1/get-kecamatan/{id}", middleware.Auth(controller.ShowKecamatan)).Methods("GET")
-	r.HandleFunc("/v1/get-kelurahans/{id}", middleware.Auth(controller.ShowKelurahans)).Methods("GET")
-	r.HandleFunc("/v1/get-kelurahan/{id}", middleware.Auth(controller.ShowKelurahan)).Methods("GET")
+	r.HandleFunc("/v1/provinsi", controller.ShowProvinces).Methods("GET")
+	r.HandleFunc("/v1/provinsi/{id}", controller.ShowProvince).Methods("GET")
+	r.HandleFunc("/v1/kabupaten-in-provinsi/{id}", controller.ShowCitys).Methods("GET")
+	r.HandleFunc("/v1/kabupaten/{id}", controller.ShowCity).Methods("GET")
+	r.HandleFunc("/v1/kecamatan-in-kabupaten/{id}", controller.ShowKecamatans).Methods("GET")
+	r.HandleFunc("/v1/kecamatan/{id}", controller.ShowKecamatan).Methods("GET")
+	r.HandleFunc("/v1/kelurahan-in-kecamatan/{id}", controller.ShowKelurahans).Methods("GET")
+	r.HandleFunc("/v1/kelurahan/{id}", controller.ShowKelurahan).Methods("GET")
 	// user
 	r.HandleFunc("/v1/users", middleware.Auth(controller.GetUsers)).Methods("GET")
-	r.HandleFunc("/v1/profile", middleware.Auth(controller.GetProfil)).Methods("GET")
+	r.HandleFunc("/v1/me", middleware.Auth(controller.GetProfil)).Methods("GET")
 	r.HandleFunc("/v1/image-profile", middleware.Auth(controller.UpdateProfilAvatar)).Methods("PUT")
 	r.HandleFunc("/v1/data-profile", middleware.Auth(controller.UpdateProfilData)).Methods("PUT")
 	// category

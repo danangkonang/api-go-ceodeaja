@@ -1,6 +1,6 @@
 package kel10
 
-import "github.com/danangkonang/rest-api/config"
+import "github.com/danangkonang/ceodeaja-go/config"
 
 func Kel16() {
 	db := config.Connect()
@@ -160,6 +160,9 @@ func Kel16() {
 		(16153, 'PAKUNCEN', 1308, 69, 5),
 		(16154, 'PATANGPULUHAN', 1308, 69, 5),
 		(16155, 'WIROBRAJAN', 1308, 69, 5),
+
+
+		
 		(16156, 'AROSBAYA', 1309, 70, 6),
 		(16157, 'BALUNG', 1309, 70, 6),
 		(16158, 'BATONAONG', 1309, 70, 6),

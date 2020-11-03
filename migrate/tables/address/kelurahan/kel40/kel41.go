@@ -1,6 +1,6 @@
 package kel40
 
-import "github.com/danangkonang/rest-api/config"
+import "github.com/danangkonang/ceodeaja-go/config"
 
 func Kel41() {
 	db := config.Connect()
@@ -217,6 +217,9 @@ func Kel41() {
 	(41210, 'PINANG SEBATANG TIMUR', 3008, 195, 11),
 	(41211, 'TUALANG', 3008, 195, 11),
 	(41212, 'TUALANG TIMUR', 3008, 195, 11),
+
+
+
 	(41213, 'BALOI PERMAI', 3009, 196, 12),
 	(41214, 'BELIAN', 3009, 196, 12),
 	(41215, 'SUKAJADI', 3009, 196, 12),
@@ -603,6 +606,10 @@ func Kel41() {
 	(41596, 'KAMPUNG BULANG', 3069, 202, 12),
 	(41597, 'MELAYU KOTA PIRING', 3069, 202, 12),
 	(41598, 'PINANG KENCANA', 3069, 202, 12),
+
+
+
+	
 	(41599, 'BAJUBANG', 3070, 203, 13),
 	(41600, 'BATIN', 3070, 203, 13),
 	(41601, 'BUNGKU', 3070, 203, 13),

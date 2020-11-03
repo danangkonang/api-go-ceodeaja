@@ -1,6 +1,6 @@
 package kel30
 
-import "github.com/danangkonang/rest-api/config"
+import "github.com/danangkonang/ceodeaja-go/config"
 
 func Kel31() {
 	db := config.Connect()
@@ -1589,6 +1589,10 @@ func Kel31() {
 	(32581, 'SIGERUN (SIGRUN)', 2263, 132, 8),
 	(32582, 'SINGGERSING', 2263, 132, 8),
 	(32583, 'SUKA MAJU', 2263, 132, 8),
+
+
+
+
 	(32584, 'AEK LOBA', 2264, 133, 9),
 	(32585, 'AEK LOBA AFDELING I', 2264, 133, 9),
 	(32586, 'AEK LOBA PEKAN', 2264, 133, 9),
@@ -7299,6 +7303,10 @@ func Kel31() {
 	(38290, 'SIGAOL BARAT', 2683, 165, 9),
 	(38291, 'SIGAOL TIMUR', 2683, 165, 9),
 	(38292, 'SIREGAR AEK NALAS', 2683, 165, 9),
+
+
+
+
 	(38293, 'BATU KAMBING', 2684, 166, 10),
 	(38294, 'BAWAN', 2684, 166, 10),
 	(38295, 'SITALANG', 2684, 166, 10),
@@ -8427,6 +8435,10 @@ func Kel31() {
 	(39418, 'PAGARUYUNG (PAGARUYUANG)', 2854, 183, 10),
 	(39419, 'SARUASO', 2854, 183, 10),
 	(39420, 'TANJUNG BARULAK', 2854, 183, 10),
+
+
+
+	
 	(39421, 'BANTAN AIR', 2855, 184, 11),
 	(39422, 'BANTAN SARI', 2855, 184, 11),
 	(39423, 'BANTAN TENGAH', 2855, 184, 11),

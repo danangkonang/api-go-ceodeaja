@@ -34,8 +34,8 @@ func Connect() *sql.DB {
 	// db, err := sql.Open("postgres", psqlInfo)
 	// dbUrl := os.Getenv("DATABASE_URL")
 	dbUrl := GetDbUrl()
-	db, err := sql.Open("postgres", dbUrl)
-
+	connection := os.Getenv("DB_CONNECTION")
+	db, err := sql.Open(connection, dbUrl)
 	if err != nil {
 		panic(err)
 	}
@@ -53,11 +53,11 @@ func GetDbUrl() string {
 	}
 	var url = os.Getenv("DATABASE_URL")
 	if url == "" {
-		user := os.Getenv("DBUSER")
-		password := os.Getenv("DBPASSWORD")
-		dbname := os.Getenv("DBNAME")
-		port := os.Getenv("DBPORT")
-		host := os.Getenv("DBHOST")
+		user := os.Getenv("DB_USER")
+		password := os.Getenv("DB_PASSWORD")
+		dbname := os.Getenv("DB_NAME")
+		port := os.Getenv("DB_PORT")
+		host := os.Getenv("DB_HOST")
 		localUrl := fmt.Sprintf("host=%s port=%s user=%s "+
 			"password=%s dbname=%s sslmode=disable",
 			host, port, user, password, dbname)

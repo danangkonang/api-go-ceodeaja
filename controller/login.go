@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/danangkonang/rest-api/helper"
+	"github.com/danangkonang/ceodeaja-go/helper"
 )
 
 type UserLogin struct {
@@ -55,7 +55,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	}
 	var result map[string]interface{}
 	json.Unmarshal(msgGetUserByEmail, &result)
-	id := fmt.Sprintf("%v", result["id"])
+	id := fmt.Sprintf("%v", result["user_id"])
 	email := fmt.Sprintf("%v", result["email"])
 	passUser := t.Password
 	passdDb := fmt.Sprintf("%v", result["password"])

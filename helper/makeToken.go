@@ -11,8 +11,8 @@ import (
 
 type MyClaims struct {
 	jwt.StandardClaims
-	Id    string
-	Email string
+	UserId string
+	Email  string
 }
 
 func MakeToken(id, email string) string {
@@ -33,8 +33,8 @@ func MakeToken(id, email string) string {
 			Issuer:    APPLICATION_NAME,
 			ExpiresAt: time.Now().Add(LOGIN_EXPIRATION_DURATION).Unix(),
 		},
-		Email: email,
-		Id:    id,
+		Email:  email,
+		UserId: id,
 	}
 	token := jwt.NewWithClaims(
 		JWT_SIGNING_METHOD,

@@ -1,6 +1,6 @@
 package kel60
 
-import "github.com/danangkonang/rest-api/config"
+import "github.com/danangkonang/ceodeaja-go/config"
 
 func Kel70() {
 	db := config.Connect()
@@ -352,6 +352,11 @@ func Kel70() {
 	(70345, 'RUM', 5587, 406, 30),
 	(70346, 'RUM BALIBUNGA', 5587, 406, 30),
 	(70347, 'SIRONGO FOLARAHA', 5587, 406, 30),
+
+
+
+
+	
 	(70348, 'KOLE', 5588, 407, 31),
 	(70349, 'MAWU', 5588, 407, 31),
 	(70350, 'NIPA', 5588, 407, 31),

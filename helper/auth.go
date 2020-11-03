@@ -5,12 +5,12 @@ import (
 	"encoding/json"
 	"time"
 
-	"github.com/danangkonang/rest-api/config"
+	"github.com/danangkonang/ceodeaja-go/config"
 	"golang.org/x/crypto/bcrypt"
 )
 
 type LoginUser struct {
-	Id         string
+	UserId     string
 	Username   string
 	Email      string
 	Password   string
@@ -21,10 +21,10 @@ type LoginUser struct {
 
 func GetUserByEmail(email string) ([]byte, bool) {
 	db := config.Connect()
-	sqlStatement := `SELECT id,email,password FROM users WHERE email=$1;`
+	sqlStatement := `SELECT user_id,email,password FROM users WHERE email=$1;`
 	var user LoginUser
 	row := db.QueryRow(sqlStatement, email)
-	err := row.Scan(&user.Id, &user.Email, &user.Password)
+	err := row.Scan(&user.UserId, &user.Email, &user.Password)
 	switch err {
 	case sql.ErrNoRows:
 		res := map[string]interface{}{
@@ -36,7 +36,7 @@ func GetUserByEmail(email string) ([]byte, bool) {
 		return r, false
 	case nil:
 		res := map[string]interface{}{
-			"id":       user.Id,
+			"user_id":  user.UserId,
 			"email":    user.Email,
 			"password": user.Password,
 		}

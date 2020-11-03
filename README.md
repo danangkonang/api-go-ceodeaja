@@ -1,7 +1,7 @@
 ## clone this
 
 ```
-$ git clone https://github.com/danangkonang/rest-api-go.git
+$ git clone https://github.com/danangkonang/ceodeaja-go-go.git
 ```
 
 ## Contact 

@@ -1,11 +1,11 @@
 package address
 
 import (
-	"github.com/danangkonang/rest-api/config"
-	"github.com/danangkonang/rest-api/migrate/tables/address/kabupaten"
-	"github.com/danangkonang/rest-api/migrate/tables/address/kecamatan"
-	"github.com/danangkonang/rest-api/migrate/tables/address/kelurahan"
-	"github.com/danangkonang/rest-api/migrate/tables/address/provinsi"
+	"github.com/danangkonang/ceodeaja-go/config"
+	"github.com/danangkonang/ceodeaja-go/migrate/tables/address/kabupaten"
+	"github.com/danangkonang/ceodeaja-go/migrate/tables/address/kecamatan"
+	"github.com/danangkonang/ceodeaja-go/migrate/tables/address/kelurahan"
+	"github.com/danangkonang/ceodeaja-go/migrate/tables/address/provinsi"
 )
 
 func Address() {

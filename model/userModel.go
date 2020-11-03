@@ -3,7 +3,7 @@ package model
 import (
 	"time"
 
-	"github.com/danangkonang/rest-api/config"
+	"github.com/danangkonang/ceodeaja-go/config"
 )
 
 func Store(email, password string) bool {

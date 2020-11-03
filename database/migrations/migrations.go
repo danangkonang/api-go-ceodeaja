@@ -1,8 +1,8 @@
 package migrations
 
 import (
-	"github.com/danangkonang/rest-api/database/migrations/tables"
-	// "github.com/danangkonang/rest-api/database/seeder"
+	"github.com/danangkonang/ceodeaja-go/database/migrations/tables"
+	// "github.com/danangkonang/ceodeaja-go/database/seeder"
 )
 
 func migrations() {

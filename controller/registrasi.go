@@ -8,8 +8,8 @@ import (
 	"time"
 	"unicode"
 
-	"github.com/danangkonang/rest-api/config"
-	"github.com/danangkonang/rest-api/helper"
+	"github.com/danangkonang/ceodeaja-go/config"
+	"github.com/danangkonang/ceodeaja-go/helper"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -100,11 +100,11 @@ func saveRegistrasi(email, password string) bool {
 	waktu := t.Format("2006-01-02 15:04:05")
 	db := config.Connect()
 	defer db.Close()
-	stmt, err := db.Prepare("INSERT INTO users(id,email,password,user_role,is_active,created_at,updated_at) VALUES($1,$2,$3,$4,$5,$6,$7)")
+	stmt, err := db.Prepare("INSERT INTO users(user_id,email,password,user_role,is_active,is_verify,created_at,updated_at) VALUES($1,$2,$3,$4,$5,$6,$7,$8)")
 	if err != nil {
 		panic(err.Error())
 	}
-	_, err = stmt.Exec(helper.UnixRandomString(32), email, password, 1, false, waktu, waktu)
+	_, err = stmt.Exec(helper.UnixRandomString(32), email, password, 1, false, false, waktu, waktu)
 	if err != nil {
 		panic(err.Error())
 	}

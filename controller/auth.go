@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/danangkonang/rest-api/helper"
+	"github.com/danangkonang/ceodeaja-go/helper"
 )
 
 func RefresToken(w http.ResponseWriter, r *http.Request) {

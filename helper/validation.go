@@ -6,7 +6,7 @@ import (
 	"regexp"
 	"time"
 
-	"github.com/danangkonang/rest-api/config"
+	"github.com/danangkonang/ceodeaja-go/config"
 )
 
 type Registrasion struct {

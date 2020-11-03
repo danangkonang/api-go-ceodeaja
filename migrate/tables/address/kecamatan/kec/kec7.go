@@ -1,6 +1,6 @@
 package kec
 
-import "github.com/danangkonang/rest-api/config"
+import "github.com/danangkonang/ceodeaja-go/config"
 
 func Kec7() {
 	db := config.Connect()

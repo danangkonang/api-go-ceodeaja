@@ -1,6 +1,6 @@
 package kec
 
-import "github.com/danangkonang/rest-api/config"
+import "github.com/danangkonang/ceodeaja-go/config"
 
 func Kec4() {
 	db := config.Connect()
@@ -74,6 +74,9 @@ func Kec4() {
 		(3067, 'TANJUNG PINANG BARAT', 202, 12),
 		(3068, 'TANJUNG PINANG KOTA', 202, 12),
 		(3069, 'TANJUNG PINANG TIMUR', 202, 12),
+
+
+
 		(3070, 'BAJUBANG', 203, 13),
 		(3071, 'BATIN XXIV', 203, 13),
 		(3072, 'MARO SEBO ILIR', 203, 13),
@@ -551,6 +554,9 @@ func Kec4() {
 		(3544, 'PRABUMULIH TIMUR', 238, 15),
 		(3545, 'PRABUMULIH UTARA', 238, 15),
 		(3546, 'RAMBANG KAPAK TENGAH', 238, 15),
+
+
+
 		(3547, 'BAKAM', 239, 16),
 		(3548, 'BELINYU', 239, 16),
 		(3549, 'MENDO BARAT', 239, 16),
@@ -976,6 +982,9 @@ func Kec4() {
 		(3968, 'SINTANG', 273, 18),
 		(3969, 'SUNGAI TEBELIAN', 273, 18),
 		(3970, 'TEMPUNAK', 273, 18),
+
+
+		
 		(3971, 'DUSUN HILIR', 274, 19),
 		(3972, 'DUSUN SELATAN', 274, 19),
 		(3973, 'DUSUN UTARA', 274, 19),

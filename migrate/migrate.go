@@ -1,7 +1,7 @@
 package migrate
 
 import (
-	"github.com/danangkonang/rest-api/migrate/tables"
+	"github.com/danangkonang/ceodeaja-go/migrate/tables"
 )
 
 func Migrate() {
