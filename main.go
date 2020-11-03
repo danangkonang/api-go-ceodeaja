@@ -9,8 +9,6 @@ import (
 	"github.com/danangkonang/ceodeaja-go/controller"
 	"github.com/danangkonang/ceodeaja-go/middleware"
 
-	// "github.com/danangkonang/ceodeaja-go/migrate"
-
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
@@ -22,7 +20,6 @@ const (
 )
 
 func main() {
-	// migrate.Migrate()
 	handleRequest()
 }
 
